@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>移动端单页面开发</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/index.css">
+	<script src="js/common.js"></script>
+	
+</head>
+<body>
+	<div id="address" class="section">
+		<!-- <a href="#rlist">地址搜索页</a> -->
+		<h1>地址搜索页</h1>
+		<h2 class="city-name"><a href="#citylist" id="cname">上海</a></h2>
+		<input type="text" id="keyword">
+		<button id="query">饿了么搜索</button>
+		<button id="waimai">百度外卖</button>
+		<ul id="list"></ul>
+	</div>
+	<div id="detail" class="section"><a href="#address">餐厅详情页</a></div>
+	<div id="citylist" class="section">
+		<h1 >城市选择页</h1>
+		<div class="position">
+			<p>当前定位城市：<span class="pspan">定位不准时，请在城市列表中选择</span></p>
+			<a href="javascript:;" class="current">
+				<span class="current-city">上海</span>
+				<span class="jiantou"> > </span>
+			</a>
+		</div>
+		<!-- ajax 加载城市列表 -->
+		<div class="hot-city geo-cities-wrapper">
+			<h4 class="geo-title">热门城市</h4>
+			<div class="geo-cities clear">
+				<a href="javascript:;" class="geo-city-hot">上海</a>
+				<!-- <a href="javascript:;" class="geo-city-hot">上海</a>
+				-->
+			</div>
+		</div>
+		<ul class="geo-cities-wrapper al-list clear"></ul>
+		<!-- <div class="geo-cities-wrapper">
+			<h4 class="geo-title">
+				<span class="ng-binding">A</span>
+				<small class="geo-title-note">(按字母顺序)</small>
+			</h4>
+			<div class="geo-cities clear">
+				<a href="javascript:;" class="geo-city">上海</a>
+			</div>
+		</div> -->
+
+	</div>
+	<!-- 餐厅列表页 -->
+	<div id="rlist" class="section">
+		<header class="restaurant">
+			<h1 class="center"><a href="#citylist">餐厅列表页</a></h1>
+			<a href="javascript:;" class="login">登录</a>
+		</header>
+		<div class="banner">
+			<div class="foodentry swipe" id="slider">
+				<div class="swipe-items-wrap swipe-wrap">
+					<ul class="swipe-item current">
+						<li>
+							<a href="jav0.9375rempt:;"><img src="https://fuss10.elemecdn.com/b/7e/d1890cf73ae6f2adb97caa39de7fcjpeg.jpeg?imageMogr/format/webp/" alt="网速不好了"><span class="title">美食</span></a>
+						</li>
+						<li>
+							<a href="javascript:;"><img src="img/02.jpg" alt="网速不好了"><span class="title">甜品饮品</span></a>
+						</li>
+						<li>
+							<a href="javascript:;"><img src="img/03.jpg" alt="网速不好了"><span class="title">上电超市</span></a>
+						</li>
+						<li>
+							<a href="javascript:;"><img src="img/04.jpg" alt="网速不好了"><span class="title">预定早餐</span></a>
+						</li>
+						<li>
+							<a href="javascript:;"><img src="img/05.jpg" alt="网速不好了"><span class="title">果蔬生鲜</span></a>
+						</li>
+						<li>
+							<a href="javascript:;"><img src="img/06.jpg" alt="网速不好了"><span class="title">新店特惠</span></a>
+						</li>
+						<li>
+							<a href="javascript:;"><img src="img/07.jpg" alt="网速不好了"><span class="title">准时达</span></a>
+						</li>
+						<li>
+							<a href="javascript:;"><img src="img/08.jpg" alt="网速不好了"><span class="title">简餐</span></a>
+						</li>
+					</ul>
+					<ul class="swipe-item">
+						<li>
+							<a href="jav0.9375rempt:;"><img src="img/09.jpg" alt="网速不好了"><span class="title">土豪推荐</span></a>
+						</li>
+						<li>
+							<a href="javascript:;"><img src="img/10.jpg" alt="网速不好了"><span class="title">鲜花蛋糕</span></a>
+						</li>
+						<li>
+							<a href="javascript:;"><img src="img/11.jpg" alt="网速不好了"><span class="title">汉堡炸鸡</span></a>
+						</li>
+						<li>
+							<a href="javascript:;"><img src="img/12.jpg" alt="网速不好了"><span class="title">日韩料理</span></a>
+						</li>
+						<li>
+							<a href="javascript:;"><img src="img/13.jpg" alt="网速不好了"><span class="title">麻辣烫</span></a>
+						</li>
+						<li>
+							<a href="javascript:;"><img src="img/14.jpg" alt="网速不好了"><span class="title">披萨意面</span></a>
+						</li>
+						<li>
+							<a href="javascript:;"><img src="img/15.jpg" alt="网速不好了"><span class="title">川湘菜</span></a>
+						</li>
+						<li>
+							<a href="javascript:;"><img src="img/16.jpg" alt="网速不好了"><span class="title">包子粥店</span></a>
+						</li>
+					</ul>
+				</div>
+				<div class="index slide-trigger">
+					<span class="i"></span>
+					<span class="i"></span>
+				</div>
+			</div>
+		</div>
+		<div class="reslMain">
+			<h3 class="around">附近商家</h3>
+			<!-- <dl class="item">
+				<dt><img src="img/001.jpg" alt=""></dt>
+				<dd class="situation">
+					<div class="place">
+						<p class="resName">上海麦当劳长江西路餐厅</p>
+						<span class="protect">票</span>
+					</div>
+					<div class="star">
+						<span><span class="rate">4.7</span>
+						<span>月售3476单</span></span>
+					</div>
+					<div class="send">
+						<div class="moneylimit" _v-01bcfc2b=""> <span _v-01bcfc2b="">¥0起送</span> <span _v-01bcfc2b="">配送费¥9</span> </div>
+						<div class="timedistance-wrap" _v-01bcfc2b=""> <span class="distance-wrap" _v-01bcfc2b="">1.09km</span> <span class="time-wrap" _v-01bcfc2b="">47分钟</span> </div>
+					</div>
+				</dd>
+				
+			</dl> -->
+			<div class="reslist"></div>
+		</div>
+		
+	</div>
+	<script src="js/zepto.js"></script>
+	
+	<script src="js/module/locationSearch.js"></script>
+	<script src="js/module/clist.js"></script>
+	<script src="js/swipe.js"></script>
+	<script src="js/module/rlist.js"></script>
+	<script src="js/module/rDetail.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>

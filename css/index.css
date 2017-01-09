@@ -1,0 +1,245 @@
+
+/* 整体项目的布局css */
+html,body {
+	height: 100%;
+}
+.section {
+	/*height: 100%;*/
+	width:100%;
+	font-size: 40px;
+	font-weight: bold;	
+	text-align: center;	
+	border-bottom: 1px solid white;
+	box-sizing: border-box;
+	display: none;
+}
+.section a {
+	color: black;
+    text-decoration: none;
+}
+#address input{
+	width:100%;
+	box-sizing: border-box;
+	height: 2rem;
+	margin-top:3rem;
+	border:1px solid #999;
+}
+#list{font-size:1rem;}
+#list li{padding:0.125rem 0;border-bottom: 1px solid #b6b6b6;width: 80%;margin:0 auto;text-overflow: ellipsis;overflow: hidden;text-align:left;}
+#list li p{
+	color:#666;
+	font-size:0.6rem;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+#citylist{background: #f2f2f2;}
+#citylist .position{font-size: 0.35rem;font-weight: 400;
+	background: #fff;
+	border-bottom: 1px solid #ddd;
+}
+#citylist .position .pspan{font-size: 0.3rem;color:#999;}
+#citylist .position p{display: flex;
+	justify-content: space-between;
+	padding:10px;border-bottom: 1px solid #eee;color:#666;}
+#citylist .position .current{
+	padding:10px;
+	font: 700 1rem "Helvetica Neue","Microsoft Yahei",sans-serif;
+    color: #08c;
+    display: flex;
+    justify-content: space-between;
+}
+#citylist .position .jiantou{
+	color: #ddd;
+}
+.geo-cities-wrapper {
+     position: relative; 
+    border-top:1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    margin-top:10px;
+    background:#fff;
+    font-size: 0.4rem;
+}
+.geo-title{
+	padding:10px;
+	border-bottom: 1px solid #eee;
+	color:#666;
+	text-align:left;
+}
+.geo-city,.geo-city-hot{
+	float: left;
+    width: 25%;
+    height: 2.8em;
+    border-bottom: 1px solid #eee;
+    border-right: 1px solid #eee;
+    text-align: center;
+    line-height: 2.8;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    box-sizing: border-box;
+}
+.geo-cities-wrapper .geo-city-hot{
+	color:#08c;
+}
+.geo-cities-wrapper .geo-city{
+	color:#555;
+}
+
+/*-----餐厅列表页--------*/
+#rlist{font-size: 0.5rem;color:#666;background-color: #f2f2f2;height:100%;}
+#rlist header{
+	position: relative;
+	background-color:#3190e8;
+	color:#fff;
+	text-align: center;
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	padding:0 0.25rem;
+}
+#rlist .login{color:#fff;margin:0 .25rem;}
+.center{
+	width:50%;
+	height: 1.875rem;
+	line-height: 1.875rem;
+	font-size: 1rem;
+	margin:0 auto;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+/*----------轮播部分----------------*/
+.banner .foodentry{
+	width:100%;
+	position: relative;
+	height:7.5rem;
+	overflow: hidden;
+	border-bottom: 1px solid #ddd;
+	text-align: center;
+	background-color: #fff;
+}
+.swipe-items-wrap{
+	width:100%;
+	height:100%;
+	background-color: #fff;
+}
+.swipe{
+	overflow: hidden;
+	visibility: hidden;
+	position: relative;
+}
+.swipe-wrap{
+	overflow: hidden;
+	position: relative;
+}
+.swipe-wrap>ul{
+	float:left;
+	/*width:100%;*/
+	position: relative;
+}
+.banner .slide-trigger .cur{
+	opacity:.8;
+}
+.swipe-item{
+	
+	width:100%;
+	height: 90%;
+	position: absolute;
+	display: flex;
+	flex-wrap: wrap;
+	/*visibility: hidden;*/
+}
+.swipe-item li{
+    margin-top: .293333rem;
+    width: 25%;
+    height:40%;
+}
+.swipe-item li img{
+	display: block;
+	width:1.925rem;
+	height: 1.925rem;
+	margin:0 auto;
+}
+.swipe-item li .title{
+	display: inline-block;
+	color: #666;
+	font-size: 0.6rem;
+	padding-top:0.25rem;
+}
+.foodentry .index{
+	width:100%;
+	position: absolute;
+	z-index: 11;
+	bottom:0.2rem;
+	display: flex;
+	justify-content: center;
+}
+.foodentry .index span{
+	display: inline-block;
+	padding:0.2rem;
+	background: #000;
+	border-radius: 50%;
+	opacity: .2;
+	margin:0 0.25rem;
+}
+.current{
+	visibility: visible;
+}
+/*--------------*/
+
+
+.reslMain{background-color: #fff;font-size: 0.3rem;margin-top:0.25rem;}
+.reslMain h3{
+	color:#999;
+	line-height: 1.0rem;
+	font-size: 0.4rem;
+	padding-left:1rem;
+	text-align:left;
+	border-bottom: 1px solid #eee;
+}
+.item{
+	position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: .8rem .266667rem;
+    border-bottom: 1px solid #eee;
+    background-color: #fff;
+    color: #666;
+    font-size: 0.6rem;
+}
+.item dt{
+	position: relative;
+    margin-right: 0.25rem;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+.item dt img{
+	display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: .053333rem;
+}
+.item .situation{
+	width:80%;
+}
+.item .place,.item .send,.item .star{
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 0.4rem;
+	color:#999;
+}
+.item .place p{
+	height:1rem;
+	line-height: 1rem;
+	font-size: 0.8rem;
+	color: #333;
+	white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.item .rate{color:#ff6000;margin-right:0.25rem;}
+.item .time-wrap{color:blue;}
+
+
+
