@@ -25,7 +25,18 @@ var curModule = null;
 function pathController(hash){
 	var module = hashMap[hash] || hashMap['address'];
 	var khash = '';
-
+	// 当hash值不再只是多个#，就要if判断了，有address时跳转到地址搜索页 ，并依据hash值改变城市
+	if(hash.indexOf('address') !== -1){
+		module = searchObj;
+		khash = '';
+		module.cCity(hash);	//调用改变城市方法
+	}
+	// 当检测到hash值里边有rlist时，跳转到餐厅列表页
+	if (hash.indexOf('rlist') !== -1) {
+		module = rlistObj;
+		khash = 'rlist';
+		module.changeResList(hash);//改变餐厅列表
+	}
 	prevModule = curModule;
 	curModule = module;
 	if(prevModule){
@@ -34,7 +45,7 @@ function pathController(hash){
 	curModule.enter();
 	// 优化性能，减少请求次数
 	if (!cacheMap[khash]) {
-		// 该模块没有被初始化过，执行if
+		// 该模块没有被初始化过，执行if,?????
 		curModule.init();
 		cacheMap[khash] = true;
 	}

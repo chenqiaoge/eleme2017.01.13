@@ -18,10 +18,12 @@ html,body {
     text-decoration: none;
 }
 #address input{
-	width:100%;
+	display: block;
+    width: 80%;
+    margin: 0 auto;
 	box-sizing: border-box;
-	height: 2rem;
-	margin-top:3rem;
+	height: 1rem;
+	margin-top:1rem;
 	border:1px solid #999;
 }
 #list{font-size:1rem;}
@@ -87,7 +89,7 @@ html,body {
 }
 
 /*-----餐厅列表页--------*/
-#rlist{font-size: 0.5rem;color:#666;background-color: #f2f2f2;height:100%;}
+#rlist{font-size: 0.5rem;color:#666;background-color: #f2f2f2;height:auto;}
 #rlist header{
 	position: relative;
 	background-color:#3190e8;
@@ -186,6 +188,21 @@ html,body {
 .current{
 	visibility: visible;
 }
+.reslist:after{
+	content:'正在加载更多商家';
+	background: #fa8919;
+	display: block;
+	height: 2rem;
+	line-height: 2rem;
+}
+body .overlist:after{
+	content:'没有更多商家了';
+	background:#fa8919;
+	display: block;
+	height: 2rem;
+	line-height: 2rem;
+}
+
 /*--------------*/
 
 
@@ -198,7 +215,7 @@ html,body {
 	text-align:left;
 	border-bottom: 1px solid #eee;
 }
-.item{
+.item a{
 	position: relative;
     display: flex;
     justify-content: space-between;
@@ -228,6 +245,25 @@ html,body {
 	justify-content: space-between;
 	margin-bottom: 0.4rem;
 	color:#999;
+	position: relative;
+}
+/*-----星星部分-------*/
+.item .star{
+	justify-content:flex-start;
+}
+.star .starB1{
+	width:73px;
+	height: 15px;
+	background:url(../img/star1.png);
+	margin-right:0.25rem;
+}
+.star .starB2{
+	position: absolute;
+	height: 15px;
+	top:0;
+	left:0;
+	background-size: 15px;
+	background:url(../img/star2.png);
 }
 .item .place p{
 	height:1rem;
@@ -240,6 +276,449 @@ html,body {
 }
 .item .rate{color:#ff6000;margin-right:0.25rem;}
 .item .time-wrap{color:blue;}
+
+/*----------餐厅详情页------------*/
+#detail{height:100%;font-size: 0.6rem;position: relative;}
+#detail .detailWrap{
+	height:100%;
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: column;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.dHeader{
+	height: 10%;
+	padding:0.25rem 0;
+	background-color:#999;
+	font-size: 0.6rem;
+	color:#fff;
+	display: flex;
+	text-align: left;
+	font-weight: 100;
+	-webkit-text-size-adjust:none;
+
+}
+.dHeader .shopImg{
+	/*width:2.5rem;*/
+	height: 2.5rem;
+	border:1px solid #fff;
+	border-radius:0.25rem;
+	margin:0 0.375rem;
+}
+.dHeader .resInfo{
+	flex:1;
+	padding-right:0.25rem;	
+}
+.dHeader .shop-name{
+	height:1rem;
+	line-height: 1rem;
+	font-size: 0.8rem;
+	font-weight: 600;
+}
+.dHeader .shopServers{
+	font-size: 0.6rem;
+	height:0.9rem;
+	line-height: 0.9rem;
+
+}
+.shopActives {
+	display: flex;
+	justify-content: space-between;
+	width:100%;
+}
+.shopActives .newCustom{
+	display: inline-block;
+	width:60%;
+	margin-right: 0.25rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.shopActives .activeNum{
+	display: inline-block;
+    width: 30%;
+}
+.shopNotice{
+	height:5%;
+	line-height:1.3rem;
+	font-size: 0.6rem;
+	font-weight: 100;
+	color:#fff;
+	background-color: rgba(0,0,0,.45);
+	padding-left:0.5rem;
+	text-align: left;
+}
+.dContent{
+	flex:1;
+	height:82%;
+	display: -webkit-flex;
+    flex-direction: column;
+}
+.dContent .shopNav{
+	height:1.75rem;
+	line-height: 1.75rem;
+	font-size: 1.0rem;
+	color: #666;
+	display: flex;
+}
+.shopNav div{
+	width:50%;
+}
+.resContent{
+	display: flex;
+	flex:1;
+}
+.resContent .left-floor{
+	width:20%;
+	
+}
+/*滚动条部分*/
+.left-floor{
+	position: relative;
+	overflow: hidden;
+}
+.right-detail{
+	position: relative;
+	overflow: hidden;
+}
+
+
+.left-floor ul{
+	background-color: #f8f8f8;
+}
+.left-floor li{
+	position: relative;
+	padding: 1rem 0.15rem;
+	border-bottom: 1px dashed #fff;
+	overflow: hidden;
+	border-left:2px solid #f8f8f8;
+	font-weight: 100;
+}
+.left-floor li p{
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.left-floor .typeNum{
+	position: absolute;
+	padding: 3px 5px;
+	background-color: red;
+	color: #fff;
+	right:0.2rem;
+	top:0;
+	border-radius:50%;
+}
+.right-detail{
+	flex:1;
+	text-align: left;
+	
+}
+/*----给左右侧的下方添加一段空白内容，适应购物车位置-------*/
+.left-floor .floorList:after{
+	content:'';
+	display: block;
+	height: 2.5rem;
+}
+.right-detail .rDetail-wrap:after{
+	content:'';
+	display: block;
+	height: 2.5rem;
+}
+/*-------------*/
+.right-detail .tip{
+	padding:0 0.25rem;
+	height:1.0rem;
+	line-height: 1.0rem;
+	font-size: 0.8rem;
+	font-weight: 900;
+	background-color: #e0e0e0;
+	margin-bottom: 0.25rem;
+}
+.foodInfo{
+	display: flex;
+	padding-bottom: 0.25rem;
+}
+.right-detail .fImg{
+
+	width:17%;
+	height: 2.2rem;
+	border-radius: 20%;
+	margin:0 0.5rem;
+}
+.right-detail .foodDetail{
+	width:75%;
+	font-weight: 100;
+	color:#666;
+	line-height: 0.8rem;
+	position: relative;
+}
+.foodDetail .fTitle{
+	height:1.0rem;
+	line-height: 1rem;
+	font-size: 0.8rem;
+	font-weight: 600;
+	color:black;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.foodDetail .price{
+	color:#f60;
+	font-size:0.8rem;
+	font-weight: 700;
+}
+/*------加入购物车部分---------*/
+.carButton{
+	position: absolute;
+	bottom:0.25rem;
+	right:0.5rem;
+}
+.carButton a{
+	display: inline-block;
+	padding:0.1rem 0.3rem;
+	background-color: #3190e8;
+	border-radius: 50%;
+	margin:0 0.15rem;
+}
+.carButton .minus{
+	visibility:hidden;
+}
+.carButton .buyNum{
+	font-size:0.75rem;
+	display: inline-block;
+	width:0.8rem;
+	text-align: center;
+	visibility: hidden;
+}
+.left-floor .food-active{
+	background-color: #fff;
+	border-left:2px solid #3190e8;
+	font-weight: 600;
+}
+
+/*-------购物车部分--------------*/
+.shopCar{
+	position: absolute;
+	z-index: 10000;
+	width:100%;
+	height:2.5rem;
+	display: flex;
+	background: rgba(0,0,0,.5);
+	bottom:0;
+	
+}
+.shopCar .carInfo{
+	width:70%;
+	position: relative;s
+}
+.carInfo .carNum{
+	position: absolute;
+	left:0.5rem;
+	top:-0.6rem;
+	width:3rem;
+	height: 3rem;
+	border-radius:50%;
+	background-color: #666;
+}
+.carInfo .carLogo{
+	position: relative;
+	left:8%;
+	top:8%;
+	width:2.0rem;
+	height: 2.0rem;
+	padding:0.25rem;
+	border-radius: 50%;
+	background-color: #3190e8;
+}
+.carNum .buyNumber{
+	position: absolute;
+	top:-5px;
+	right:0.5rem;
+	padding:3px 6px;
+	background-color: red;
+	border-radius:50%;
+	display: none;
+}
+.carInfo .carLogo img{
+	width:2.0rem;
+	height: 2.0rem;
+	border-radius: 50%
+}
+.carInfo .tPrice{
+	color:#fff;	
+	font-weight: 100;
+}
+.tPrice .buyPrice{
+	font-size: 0.8rem;
+	height: 1.0rem;
+	line-height: 1.0rem;
+	font-weight: 600;
+}
+.shopCar a{
+	flex:1;
+}
+.shopCar .goPay{
+	font-size: 1.0rem;
+	color:white;
+	line-height: 2.5rem;
+}
+/*----------结算部分----------------*/
+#checkOut{height:100%;position: relative;}
+#checkOut header{
+	background-color:#3190e8;
+	position: relative;
+	display: flex;
+	height:2rem;
+	line-height: 2rem;
+}
+#checkOut .center{
+	width:86%;
+	line-height: 2rem;
+	font-size: 1.2rem;
+	color: #fff;
+}
+#checkOut .center a{
+	position: absolute;
+	left:0.5rem;
+	top:0;
+	font-size:0.6rem;
+	color:#fff;
+}
+#checkOut .login{
+	flex:1;
+	font-size: 16px;
+	color:#fff;
+}
+.checkMain{
+	height:83%;
+	background-color:#e0e0e0;
+	display: flex;
+	flex-direction:column;
+}
+.checkMain .addressBox{
+	padding:1rem 0.5rem;
+	font-size:16px;
+	text-align: left;
+	background-color: #fff;
+	margin-bottom: 10px;
+}
+.addressBox .addAddress{
+	display: flex;
+	justify-content: space-between;
+}
+.sendTime{
+	background-color: #fff;
+	margin-bottom: 10px;
+	font-size:16px;
+	padding:10px;
+	display: flex;
+	line-height: 2.0rem;
+}
+.sendTime .sendLeft{
+	width:40%;
+	font-size: 24px;
+	font-weight: 900;
+	padding-top:10px;
+	text-align: left;
+}
+.sendTime .sendRight{
+	flex:1;
+	color:#3190e8;
+}
+.sendRight .quick{
+	border-bottom:1px dashed #EEE;
+	    height: 1rem;
+    line-height: 1rem;
+}
+.sendRight .bird{
+	width:36%;
+	margin:0 auto;
+	border-radius:10%;
+	font-size: 12px;
+	background-color:#3190e8;
+	color:#fff;
+	margin-top:10px;
+	height:20px;
+	line-height: 20px;
+}
+.payWay{
+	padding:0 0.5rem;
+	line-height:30px;
+	font-size:14px;
+	background-color: #fff;
+	margin-bottom:10px;
+}
+.payWay p{
+	display: flex;
+	justify-content: space-between;
+	
+}
+.payWay p span{
+	color:#aaa;
+	font-size: 12px;
+}
+
+.waitPay{
+	font-size: 16px;
+	font-weight: 800;
+	position: absolute;
+	bottom: 0;
+	width:100%;
+	height:10%;
+	background-color: #aaa;
+	display: flex;
+	line-height: 100%;
+	align-items: center;
+	color:#fff;
+}
+.waitPay .verify{
+	width:30%;
+	height:100%;
+	line-height: 2.8rem;
+	background-color: #56d176;
+}
+.waitPay .wait{
+	flex:1;
+	font-size:20px;
+	text-align: left;
+	padding-left:0.5rem;
+}
+.cCarBox{
+	flex:1;
+	background-color: #fff;
+	font-size:0.7rem;
+	color:#666;
+	line-height:1.5rem;
+}
+.cShopInfo{
+	 height: 1.8rem;
+    line-height: 1.8rem;
+    font-size: 1.0rem;
+    padding-left: 0.5rem;
+    display: flex;
+    color:black;
+}
+.cShopInfo img{
+	width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.5rem;
+}
+.cCarBox .fee,.cCarBox .total{
+	padding:0 0.5rem;
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px dotted #eee;
+}
+.cfoodList{
+	height: 6.5rem;
+	overflow: hidden;
+}
+.cfoodList li{
+	display: flex;
+	justify-content: space-between;
+	padding:0 0.5rem;
+	border-bottom: 1px dotted #eee;
+}
 
 
 

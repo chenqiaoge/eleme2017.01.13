@@ -17,6 +17,29 @@ var searchObj = {
 	},
 	bindEvent:function(){
 		var that = this;
+		$('#keyword').on('input',function(event){
+			console.log('我进行了改变')
+		});
+
+		// 优化性能，减少ajax请求
+		$('#list').on('click','a',function(evnet){
+			console.log('我的地址列表被点击了');
+			// 阻止它的默认事件（默认会跳转）
+			
+			if (this.dataset.type!=='bd') {
+				event.preventDefault();
+				var locInfo = {
+					lat : this.dataset.lat,
+					lng : this.dataset.lng,
+					name: this.dataset.name
+				};
+				// 本地缓存的存储（存储经纬值），后边可以通过geo来获取本地缓存中的经纬值，
+				Store('ele',locInfo);
+				location.href = '#rlist-'+ this.dataset.geo;
+			}
+			
+
+		});
 		// 点击饿了么的搜索时，会打印出相应结果
 		$('#query').on('click',function(){
 			console.log('e点击了');
@@ -33,7 +56,7 @@ var searchObj = {
 					console.log(res);
 					var str = '';
 					for(var i = 0; i<res.length;i++){
-						str += '<li><a href="#rlist-'+res[i].latitude+'-'+res[i].longitude+'-'+res[i].geohash+'">'+res[i].name+'<p>'+res[i].address+'</p></a></li>'
+						str += '<li><a data-geo="'+res[i].geohash+'" data-lat="'+res[i].latitude+'" data-lng="'+res[i].longitude+'"data-name="'+res[i].name+'" href="#rlist">'+res[i].name+'<p>'+res[i].address+'</p></a></li>';
 					};
 					$('#list').html(str);
 				},
@@ -62,11 +85,16 @@ var searchObj = {
 					lng:''
 				},
 				success:function(res){
-					console.log(res.result.content.length);
-					var str = '';
-					for(var i=0;i<res.result.content.length;i++){
-						str += '<li><a href="#rlist-'+res.result.content[i].latitude+'-'+res.result.content[i].longitude+'">'+res.result.content[i].name+'<p>'+res.result.content[i].address+'</p></a></li>';
-					}
+					console.log(res);
+					if (res.result.length == 0){
+						str = '后台没有相关数据';
+					}else{
+						var str = '';
+						for(var i=0;i<res.result.content.length;i++){
+							str += '<li><a data-type="bd" href="#rlist-bd-'+res.result.content[i].name+'-'+res.result.content[i].latitude+'-'+res.result.content[i].longitude+'">'+res.result.content[i].name+'<p>'+res.result.content[i].address+'</p></a></li>';
+						}
+						
+					}	
 					$('#list').html(str);
 				},
 				error:function(){

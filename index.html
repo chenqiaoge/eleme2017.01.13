@@ -6,6 +6,8 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/index.css">
+	<!-- pace.css是进度条插件的css -->
+	<link rel="stylesheet" href="css/pace.css">		
 	<script src="js/common.js"></script>
 	
 </head>
@@ -19,7 +21,77 @@
 		<button id="waimai">百度外卖</button>
 		<ul id="list"></ul>
 	</div>
-	<div id="detail" class="section"><a href="#address">餐厅详情页</a></div>
+	<!-- 餐厅详情页 -->
+	<div id="detail" class="section">
+		<div class="detailWrap">
+			<div class="dHeader">
+				<a href="#rlist" class="backRlist">
+				<img class="shopImg" src="https://fuss10.elemecdn.com/5/e6/dc977acf1b32dc6526aab842f9f8cjpeg.jpeg?imageMogr/quality/80/format/webp/" alt=""></a>
+				<div class="resInfo">
+					<h2 class="shop-name">牛棚牛奶</h2>
+					<p class="shopServers">
+						<span class="shopServer">蜂鸟专送 / </span><span class="shopServer">20分钟送达 / </span><span class="shopServer">满70免配送费</span>
+					</p>
+					<p class="shopActives">
+						<span class="newCustom">新用户下单立减20.0元（不与其他活动同享）</span>
+						<span class="activeNum">2个活动</span>
+					</p>
+				</div>
+			</div>
+			<div class="shopNotice"><span>欢迎光临，用餐高峰其请提前下单，谢谢。</span></div>
+			<div class="dContent">
+				<div class="shopNav">
+					<div class="merchandise">商品</div>
+					<div class="merchant">商家</div>
+				</div>
+				<div class="resContent">
+					<div class="left-floor">
+						<ul class="floorList">
+							<li class="food-active">优惠</li>
+							
+						</ul>
+					</div>
+					<div class="right-detail">
+					 <div class="rDetail-wrap">
+					 	<!-- <div class="foodItem">
+							<h3 class="tip">热销榜</h3>
+							<div class="foodInfo">
+								<img class="fImg" src="https://fuss10.elemecdn.com/b/c9/fc4a997eca925324a89315fd91ef7jpeg.jpeg?imageMogr/thumbnail/140x140/format/webp/quality/85" alt="">
+								<div class="foodDetail">
+									<h4 class="fTitle">原味小凡</h4>
+									<p class="fsales">月售 <span class="sNUm">1</span> 份</p>
+									<p class="fActive"></p>
+									<p class="fPrice">￥<span class="price">18</span></p>
+									<div class="carButton">
+										<a href="javascript:;" class="minus">-</a>
+										<span class="buyNum">0</span>
+										<a href="javascript" class="add">+</a>
+									</div>
+								</div>
+							</div>
+						</div> -->
+					  </div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+		<div class="shopCar">
+			<div class="carInfo">
+				<div class="carNum">
+					<div class="carLogo"><img src="img/car.png" alt=""></div>
+					<div class="buyNumber">0</div>
+				</div>
+				<div class="tPrice">
+					<p class="buyPrice">￥<span class="money">0</span></p>
+					<p class="send">配送费￥<span class="sendfee">9</span></p>
+				</div>
+			</div>
+			<a href="#checkOut"><div class="goPay">去结算</div></a>
+		</div>
+	</div>
+	<!-- 城市选择页 -->
 	<div id="citylist" class="section">
 		<h1 >城市选择页</h1>
 		<div class="position">
@@ -53,9 +125,10 @@
 	<!-- 餐厅列表页 -->
 	<div id="rlist" class="section">
 		<header class="restaurant">
-			<h1 class="center"><a href="#citylist">餐厅列表页</a></h1>
+			<h1 class="center"><a href="#citylist" class="resAddress">餐厅列表页</a></h1>
 			<a href="javascript:;" class="login">登录</a>
 		</header>
+		<!--  -->
 		<div class="banner">
 			<div class="foodentry swipe" id="slider">
 				<div class="swipe-items-wrap swipe-wrap">
@@ -142,13 +215,69 @@
 		</div>
 		
 	</div>
+	<!-- 结算页面 -->
+	<div id="checkOut" class="section">
+		<header class="check-out">
+			<h3 class="center">
+				<a href="#detail"><span class="backRDetail">返回</span></a>
+				确认订单
+			</h3>
+			<a href="javascript:;" class="login">登录</a>
+		</header>	
+		<div class="checkMain">
+			<div class="addressBox">
+				<p class="addAddress">请添加一个收货地址 <span> > </span></p>
+			</div>
+			<div class="sendTime">
+				<div class="sendLeft">送达时间</div>
+				<div class="sendRight">
+					<p class="quick">尽快送达 | 预计17:51</p>
+					<p class="bird">蜂鸟专送</p>
+				</div>
+			</div>
+			<div class="payWay">
+				<p>支付方式 <span class="onlinePay">在线支付 > </span></p>
+				<p>红包 <span class="forApp">暂时只在饿了么APP中支持 > </span></p>
+			</div>
+		<div class="cCarBox">
+			<h3 class="cShopInfo">
+				<img src="img/01.jpg" alt="">
+				<span class="cShopName">
+					许留山（西湖店）
+				</span>
+			</h3>
+			<ul class="cfoodList">
+				<li>
+					<span class="cellName">多大仇地上</span>
+					<span class="cellquantity"> X 1</span>
+					<span class="cellPrice">￥36</span>
+				</li>
+			</ul>
+			<div class="fee">
+				<div>配送费</div>
+				<div class="sendFee">￥4</div>
+			</div>
+			<div class="total">
+				<p>订单 ￥<span class="tM">112</span></p>
+				<p>待支付 ￥<span class="wP">112</span></p>
+			</div>
+		</div>
+		</div>
+		
+		<div class="waitPay">
+			<p class="wait">待支付￥<span class="payMoney">112</span></p>
+			<p class="verify">确认下单</p>
+		</div>
+	</div>
 	<script src="js/zepto.js"></script>
-	
+	<script src="js/swipe.js"></script>
+	<script src="js/pace.js"></script>
+	<script src="js/iscroll.js"></script>
 	<script src="js/module/locationSearch.js"></script>
 	<script src="js/module/clist.js"></script>
-	<script src="js/swipe.js"></script>
 	<script src="js/module/rlist.js"></script>
 	<script src="js/module/rDetail.js"></script>
+	<script src="js/module/check.js"></script>
 <script src="js/index.js"></script>
 </body>
 </html>
